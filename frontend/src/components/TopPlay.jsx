@@ -45,11 +45,11 @@ const TopChartCard = ({song, i, isPlaying, activeSong, handlePauseClick, handleP
 const TopPlay = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector(state => state.player);
-  const { data } = useGetTopChartsQuery();
+  const { data, isFetching, error } = useGetTopChartsQuery();
   const divRef = useRef(null);
 
   useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: 'smooth' });
+    divRef?.current?.scrollIntoView({ behavior: 'smooth' });
   });
 
   // getting top 5 songs from songs and displaying them, from total 50 songs data
@@ -64,8 +64,9 @@ const TopPlay = () => {
     dispatch(playPause(true));
   };
 
+  if(isFetching || error) return <></>;
   return(
-    <div ref={divRef} className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[400px] max-w-full flex flex-col">
+    <div ref={divRef} className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[400px] max-w-full flex flex-col pt-2 animate-slideright">
 
       {/* Top Charts */}
       <div className="w-full flex flex-col">
@@ -73,13 +74,13 @@ const TopPlay = () => {
         {/* heading and button */}
         <div className="flex flex-row justify-between items-center">
           <h2 className='text-white font-bold text-2xl'>Top Charts</h2>
-          <Link to='/topcharts'>
-            <p className="text-gray-300 text-base cursor-pointer">See more</p>
+          <Link to='/top-charts'>
+            <p className="text-gray-300 text-base cursor-pointer underline underline-offset-1">See more</p>
           </Link>
         </div>
 
         {/* tops list */}
-        <div className='mt-4 flex flex-col gap-1'>
+        <div className='mt-2 flex flex-col gap-1'>
           {topPlays?.map((song, i)=>(
             <TopChartCard 
               key = {song?.key} 
@@ -95,12 +96,12 @@ const TopPlay = () => {
       </div>
 
       {/* Top Artists */}
-      <div className="w-full flex flex-col mt-8">
+      <div className="w-full flex flex-col mt-3">
         {/* heading and button */}
         <div className="flex flex-row justify-between items-center">
           <h2 className='text-white font-bold text-2xl'>Top Artists</h2>
-          <Link to='/topcharts'>
-            <p className="text-gray-300 text-base cursor-pointer">See more</p>
+          <Link to='/top-artists'>
+            <p className="text-gray-300 text-base cursor-pointer underline underline-offset-1">See more</p>
           </Link>
         </div>
 

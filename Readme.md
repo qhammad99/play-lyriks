@@ -13,9 +13,9 @@ Credit goes to [JavaScript Mastery](https://www.youtube.com/watch?v=I1cpb0tYV74&
 
 ### How to Run:
 
-- we need `api key`, for this create account on Rapid Api and get that key.
-- create `.env` file inside frontend folder.
-- create the following `variable` and add api after it in .env, `REACT_APP_SHAZAM_CORE_RAPID_API_KEY =`.
+- We need `api key`, for this create account on Rapid Api and get that key.
+- Create `.env` file inside frontend folder.
+- Follow the `.env.example` and give values to those variables and paste content in .env.
 - Go to directory 'frontend' with `cd frontend` command and start with `npm start`.
 - If already starated project without .env file then, clear the cache with `npm cache clean --force` and run the server again.
 

@@ -41,3 +41,12 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+@media (max-width: 1280px){
+  .testingJustSmall{
+    overflow-y: scroll;
+  }
+  .testingInnerScroll{
+    height: auto
+  }
+}

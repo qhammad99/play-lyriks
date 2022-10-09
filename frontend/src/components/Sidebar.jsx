@@ -10,7 +10,8 @@ const NavLinks = ({handleClick}) => (
   <div className='mt-10'>
     {links.map((item, i)=>(
       <NavLink 
-        key={i}
+        key={item.name}
+        to={item.to}
         className="flex flex-row justify-start item-center my-8 text-sm font-medium text-gray-400 hover:text-cyan-400"
         onClick={() => handleClick && handleClick()}
       >
@@ -32,19 +33,22 @@ const Sidebar = () => {
       </div>
 
       {/* mobile menu */}
-      <div className='absolute md:hidden block top-6 right-3'>
+      
         {mobileMenuOpen ? (
-          <RiCloseLine 
-            className="w-6 h-6 text-white mr-2"
-            onClick = {() => setMobileMenuOpen(false)}
-          />
+          <div className='absolute md:hidden block top-2 right-1/3 w-12 h-10 flex justify-center items-center bg-gray-200 rounded-l-full z-20'>
+            <RiCloseLine 
+              className="w-6 h-6 text-[#121286]"
+              onClick = {() => setMobileMenuOpen(false)}
+            />
+          </div>
         ): (
-          <HiOutlineMenu 
-            className="w-6 h-6 text-white mr-2"
-            onClick = {() => setMobileMenuOpen(true)}
-          />
+          <div className='absolute md:hidden block top-2 left-0 w-12 h-10 flex justify-center items-center bg-gray-200 rounded-r-full z-10'>
+            <HiOutlineMenu 
+              className="w-6 h-6 text-[#121286]"
+              onClick = {() => setMobileMenuOpen(true)}
+            />
+          </div>
         )}
-      </div>
       {/* part of mobile menu */}
       <div className={`absolute top-0 h-screen w-2/3 bg-gradient-to-tl from-white/10 to-[#483d8b] backdrop-blur-lg z-10 p-6 md:hidden smooth-transaction ${mobileMenuOpen ? 'left-0': '-left-full'}`}>
         <img src={logo} alt="logo" className='w-full h-14 object-contain' />
