@@ -8,6 +8,7 @@ const App = () => {
   const { activeSong } = useSelector((state) => state.player);
 
   return (
+    <div style = {{position: 'absolute', width:'100%', overflowY:'hidden', top:0, bottom:0}}>
     <div className="relative flex">
       <Sidebar />
       <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
@@ -25,7 +26,7 @@ const App = () => {
               <Route path="/search/:searchTerm" element={<Search />} />
             </Routes>
           </div>
-          {/* lg:-top-[72px] top-[0] lg:pt-5 pt-0 */}
+
           <div className="xl:sticky relative xl:bg-gradient-to-l from-transparent to-[#333369] xl:-mt-[72px] -mt-0 xl:pt-5 pt-0 ">
             <TopPlay />
           </div>
@@ -38,6 +39,7 @@ const App = () => {
           <MusicPlayer />
         </div>
       )}
+    </div>
     </div>
   );
 };

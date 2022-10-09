@@ -35,14 +35,14 @@ const Sidebar = () => {
       {/* mobile menu */}
       
         {mobileMenuOpen ? (
-          <div className='absolute md:hidden block top-2 right-1/3 w-12 h-10 flex justify-center items-center bg-gray-200 rounded-l-full z-20'>
+          <div className='absolute md:hidden block top-4 right-1/3 w-12 h-10 flex justify-center items-center bg-gray-200 rounded-l-full z-20'>
             <RiCloseLine 
               className="w-6 h-6 text-[#121286]"
               onClick = {() => setMobileMenuOpen(false)}
             />
           </div>
         ): (
-          <div className='absolute md:hidden block top-2 left-0 w-12 h-10 flex justify-center items-center bg-gray-200 rounded-r-full z-10'>
+          <div className='absolute md:hidden block top-4 left-0 w-12 h-10 flex justify-center items-center bg-gray-200 rounded-r-full z-10'>
             <HiOutlineMenu 
               className="w-6 h-6 text-[#121286]"
               onClick = {() => setMobileMenuOpen(true)}

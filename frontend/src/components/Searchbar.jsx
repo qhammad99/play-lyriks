@@ -14,7 +14,7 @@ const Searchbar = () => {
   }
 
   return (
-    <div onSubmit={handleSubmit} className="xl:mr-[460px] mr-0 px-8">
+    <div onSubmit={handleSubmit} className="xl:mr-[460px] mr-0 px-8 xl:ml-0 ml-4">
       <form
         autoComplete="off"
         className="p-2 text-gray-400 focus-within:text-gray-600"
